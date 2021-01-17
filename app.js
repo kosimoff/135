@@ -1095,7 +1095,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "p-5" }, [
+  return _c("div", { staticClass: "p-5 inline-block" }, [
     !_vm.editField
       ? _c("div", {}, [
           _c(
@@ -1244,7 +1244,7 @@ var render = function() {
     _vm.svg
       ? _c(
           "svg",
-          { staticClass: "pt-5", attrs: { width: "1200", height: "800" } },
+          { staticClass: "pt-5", attrs: { width: "800", height: "800" } },
           [
             _vm.all
               ? _c("line", {
