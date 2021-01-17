@@ -1102,7 +1102,7 @@ var render = function() {
             "button",
             {
               staticClass:
-                "p-2 bg-blue-700 hover:bg-blue-800 rounded-lg focus:outline-none text-white",
+                "p-2 bg-blue-700 hover:bg-blue-800 rounded-lg focus:outline-none text-white uppercase",
               style: { backgroundColor: _vm.allSelected },
               attrs: { type: "button", name: "button" },
               on: {
@@ -1111,14 +1111,14 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("Все")]
+            [_vm._v("все")]
           ),
           _vm._v(" "),
           _c(
             "button",
             {
               staticClass:
-                "p-2 bg-blue-700 hover:bg-blue-800 rounded-lg focus:outline-none text-white",
+                "p-2 bg-blue-700 hover:bg-blue-800 rounded-lg focus:outline-none text-white uppercase",
               style: { backgroundColor: _vm.innerSelected },
               attrs: { type: "button", name: "button" },
               on: {
@@ -1127,14 +1127,14 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("Внутренние")]
+            [_vm._v("внутренние")]
           ),
           _vm._v(" "),
           _c(
             "button",
             {
               staticClass:
-                "p-2 bg-blue-700 hover:bg-blue-800 rounded-lg focus:outline-none text-white",
+                "p-2 bg-blue-700 hover:bg-blue-800 rounded-lg focus:outline-none text-white uppercase",
               style: { backgroundColor: _vm.centerSelected },
               attrs: { type: "button", name: "button" },
               on: {
@@ -1143,14 +1143,14 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("Центральные")]
+            [_vm._v("центральные")]
           ),
           _vm._v(" "),
           _c(
             "button",
             {
               staticClass:
-                "p-2 bg-blue-700 hover:bg-blue-800 rounded-lg focus:outline-none text-white",
+                "p-2 bg-blue-700 hover:bg-blue-800 rounded-lg focus:outline-none text-white uppercase",
               style: { backgroundColor: _vm.outerSelected },
               attrs: { type: "button", name: "button" },
               on: {
@@ -1159,7 +1159,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("Наружные")]
+            [_vm._v("внешние")]
           )
         ])
       : _vm._e(),
