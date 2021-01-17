@@ -257,11 +257,11 @@ __webpack_require__.r(__webpack_exports__);
       constant: 0.414213562373,
       currentUnit: 'mm',
       allSelected: '#2c5282',
-      innerSelected: false,
-      centerSelected: false,
-      outerSelected: false,
+      innerSelected: '#2b6cb0',
+      centerSelected: '#2b6cb0',
+      outerSelected: '#2b6cb0',
       mmSelected: '#2c5282',
-      cmSelected: false
+      cmSelected: '#2b6cb0'
     };
   },
   created: function created() {
@@ -300,7 +300,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       this.cmSelected = '#2c5282';
-      this.mmSelected = '';
+      this.mmSelected = '#2b6cb0';
     },
     mm: function mm() {
       if (this.currentUnit != 'mm') {
@@ -313,7 +313,7 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       this.mmSelected = '#2c5282';
-      this.cmSelected = '';
+      this.cmSelected = '#2b6cb0';
     },
     calculate: function calculate() {
       this.svg = true;
@@ -580,25 +580,25 @@ __webpack_require__.r(__webpack_exports__);
       if (this.all) {
         this.allSelected = '#2c5282';
       } else {
-        this.allSelected = '';
+        this.allSelected = '#2b6cb0';
       }
 
       if (this.inner) {
         this.innerSelected = '#2c5282';
       } else {
-        this.innerSelected = '';
+        this.innerSelected = '#2b6cb0';
       }
 
       if (this.center) {
         this.centerSelected = '#2c5282';
       } else {
-        this.centerSelected = '';
+        this.centerSelected = '#2b6cb0';
       }
 
       if (this.outer) {
         this.outerSelected = '#2c5282';
       } else {
-        this.outerSelected = '';
+        this.outerSelected = '#2b6cb0';
       }
     },
     change: function change(x) {
