@@ -1179,7 +1179,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("mm")]
+            [_vm._v("мм")]
           ),
           _vm._v(" "),
           _c(
@@ -1195,7 +1195,7 @@ var render = function() {
                 }
               }
             },
-            [_vm._v("cm")]
+            [_vm._v("см")]
           )
         ])
       : _vm._e(),
