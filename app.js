@@ -1212,7 +1212,7 @@ var render = function() {
               }
             ],
             staticClass: "border border-black p-1",
-            attrs: { type: "text", size: "" },
+            attrs: { type: "number", size: "" },
             domProps: { value: _vm.edit },
             on: {
               input: function($event) {
