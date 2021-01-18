@@ -1116,7 +1116,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", {}, [
     !_vm.editField
-      ? _c("div", { staticClass: "mt-5 flex justify-center mx-5" }, [
+      ? _c("div", { staticClass: "mt-5 flex justify-center" }, [
           _c(
             "button",
             {
@@ -1267,11 +1267,11 @@ var render = function() {
         )
       : _vm._e(),
     _vm._v(" "),
-    _c("div", { staticClass: "flex justify-center" }, [
+    _c("div", { staticClass: "flex justify-center mx-10" }, [
       _vm.svg
         ? _c(
             "svg",
-            { staticClass: "mt-5", attrs: { width: "400", height: "400" } },
+            { staticClass: "mt-5", attrs: { width: "500", height: "500" } },
             [
               _vm.all
                 ? _c("line", {
