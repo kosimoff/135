@@ -1121,7 +1121,7 @@ var render = function() {
             "button",
             {
               staticClass:
-                "p-2 bg-blue-700 hover:bg-blue-800 rounded-lg focus:outline-none text-white uppercase",
+                "p-2 bg-blue-700 hover:bg-blue-800 rounded-lg focus:outline-none text-white",
               style: { backgroundColor: _vm.allSelected },
               attrs: { type: "button", name: "button" },
               on: {
@@ -1137,7 +1137,7 @@ var render = function() {
             "button",
             {
               staticClass:
-                "p-2 ml-1 bg-blue-700 hover:bg-blue-800 rounded-lg focus:outline-none text-white uppercase",
+                "p-2 ml-1 bg-blue-700 hover:bg-blue-800 rounded-lg focus:outline-none text-white",
               style: { backgroundColor: _vm.innerSelected },
               attrs: { type: "button", name: "button" },
               on: {
@@ -1153,7 +1153,7 @@ var render = function() {
             "button",
             {
               staticClass:
-                "p-2 ml-1 bg-blue-700 hover:bg-blue-800 rounded-lg focus:outline-none text-white uppercase",
+                "p-2 ml-1 bg-blue-700 hover:bg-blue-800 rounded-lg focus:outline-none text-white",
               style: { backgroundColor: _vm.centerSelected },
               attrs: { type: "button", name: "button" },
               on: {
@@ -1169,7 +1169,7 @@ var render = function() {
             "button",
             {
               staticClass:
-                "p-2 ml-1 bg-blue-700 hover:bg-blue-800 rounded-lg focus:outline-none text-white uppercase",
+                "p-2 ml-1 bg-blue-700 hover:bg-blue-800 rounded-lg focus:outline-none text-white",
               style: { backgroundColor: _vm.outerSelected },
               attrs: { type: "button", name: "button" },
               on: {
@@ -1267,11 +1267,11 @@ var render = function() {
         )
       : _vm._e(),
     _vm._v(" "),
-    _c("div", { staticClass: "flex justify-center mx-10" }, [
+    _c("div", { staticClass: "flex justify-center" }, [
       _vm.svg
         ? _c(
             "svg",
-            { staticClass: "mt-5", attrs: { width: "500", height: "500" } },
+            { staticClass: "mt-5", attrs: { width: "400", height: "400" } },
             [
               _vm.all
                 ? _c("line", {
