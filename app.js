@@ -220,6 +220,20 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Application",
   props: [],
@@ -602,10 +616,15 @@ __webpack_require__.r(__webpack_exports__);
       }
     },
     change: function change(x) {
-      this.svg = false;
-      this.editField = true;
+      // this.svg = false;
+      // this.editField = true;
       this.toBeEdited = x;
-      this.edit = this.parts[x];
+      var myVar = window.prompt('Текущее значение: ' + this.parts[x] + this.currentUnit, this.parts[x]);
+
+      if (myVar) {
+        this.edit = myVar;
+        this.calculate();
+      } else {}
     }
   }
 });
@@ -1095,9 +1114,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "p-5 inline-block" }, [
+  return _c("div", {}, [
     !_vm.editField
-      ? _c("div", {}, [
+      ? _c("div", { staticClass: "mt-5 flex justify-center" }, [
           _c(
             "button",
             {
@@ -1118,7 +1137,7 @@ var render = function() {
             "button",
             {
               staticClass:
-                "p-2 bg-blue-700 hover:bg-blue-800 rounded-lg focus:outline-none text-white uppercase",
+                "p-2 ml-1 bg-blue-700 hover:bg-blue-800 rounded-lg focus:outline-none text-white uppercase",
               style: { backgroundColor: _vm.innerSelected },
               attrs: { type: "button", name: "button" },
               on: {
@@ -1134,7 +1153,7 @@ var render = function() {
             "button",
             {
               staticClass:
-                "p-2 bg-blue-700 hover:bg-blue-800 rounded-lg focus:outline-none text-white uppercase",
+                "p-2 ml-1 bg-blue-700 hover:bg-blue-800 rounded-lg focus:outline-none text-white uppercase",
               style: { backgroundColor: _vm.centerSelected },
               attrs: { type: "button", name: "button" },
               on: {
@@ -1150,7 +1169,7 @@ var render = function() {
             "button",
             {
               staticClass:
-                "p-2 bg-blue-700 hover:bg-blue-800 rounded-lg focus:outline-none text-white uppercase",
+                "p-2 ml-1 bg-blue-700 hover:bg-blue-800 rounded-lg focus:outline-none text-white uppercase",
               style: { backgroundColor: _vm.outerSelected },
               attrs: { type: "button", name: "button" },
               on: {
@@ -1165,7 +1184,7 @@ var render = function() {
       : _vm._e(),
     _vm._v(" "),
     !_vm.editField
-      ? _c("div", { staticClass: "mt-3" }, [
+      ? _c("div", { staticClass: "mt-3 flex justify-center" }, [
           _c(
             "button",
             {
@@ -1186,7 +1205,7 @@ var render = function() {
             "button",
             {
               staticClass:
-                "p-2 bg-blue-700 hover:bg-blue-800 rounded-lg focus:outline-none text-white",
+                "p-2 ml-1 bg-blue-700 hover:bg-blue-800 rounded-lg focus:outline-none text-white",
               style: { backgroundColor: _vm.cmSelected },
               attrs: { type: "button", name: "button" },
               on: {
@@ -1200,1105 +1219,1087 @@ var render = function() {
         ])
       : _vm._e(),
     _vm._v(" "),
-    _vm.editField
-      ? _c("div", {}, [
-          _c("input", {
-            directives: [
-              {
-                name: "model",
-                rawName: "v-model",
-                value: _vm.edit,
-                expression: "edit"
-              }
-            ],
-            staticClass: "border border-black p-1",
-            attrs: { type: "number", size: "" },
-            domProps: { value: _vm.edit },
-            on: {
-              input: function($event) {
-                if ($event.target.composing) {
-                  return
-                }
-                _vm.edit = $event.target.value
-              }
-            }
-          }),
-          _vm._v(" "),
-          _c(
-            "button",
-            {
-              staticClass:
-                "p-1 bg-blue-700 text-white rounded-lg border-blue-600 border",
-              attrs: { type: "button", name: "button" },
-              on: {
-                click: function($event) {
-                  return _vm.calculate()
-                }
-              }
-            },
-            [_vm._v("OK")]
-          )
-        ])
-      : _vm._e(),
-    _vm._v(" "),
-    _vm.svg
-      ? _c(
-          "svg",
-          { staticClass: "pt-5", attrs: { width: "800", height: "800" } },
-          [
-            _vm.all
-              ? _c("line", {
-                  staticStyle: {
-                    stroke: "rgb(0,0,255)",
-                    "stroke-width": "0.8"
-                  },
-                  attrs: {
-                    x1: "80",
-                    y1: "20",
-                    x2: "80",
-                    y2: "80",
-                    "stroke-dasharray": "5,5"
-                  }
-                })
-              : _vm._e(),
-            _vm._v(" //rightCornerLine\n    "),
-            _vm.all
-              ? _c("line", {
-                  staticStyle: {
-                    stroke: "rgb(0,0,255)",
-                    "stroke-width": "0.8"
-                  },
-                  attrs: {
-                    x1: "380",
-                    y1: "20",
-                    x2: "380",
-                    y2: "80",
-                    "stroke-dasharray": "5,5"
-                  }
-                })
-              : _vm._e(),
-            _vm._v(" //rightWallOuterHelper\n    "),
-            _vm.all
-              ? _c("line", {
-                  staticStyle: {
-                    stroke: "rgb(0,0,255)",
-                    "stroke-width": "0.8"
-                  },
-                  attrs: {
-                    x1: "365",
-                    y1: "50",
-                    x2: "365",
-                    y2: "80",
-                    "stroke-dasharray": "5,5"
-                  }
-                })
-              : _vm._e(),
-            _vm._v(" //rightWallCenterHelper\n    "),
-            _vm.all
-              ? _c("line", {
-                  staticStyle: {
-                    stroke: "rgb(255,0,0)",
-                    "stroke-width": "0.8"
-                  },
-                  attrs: {
-                    x1: "80",
-                    y1: "20",
-                    x2: "380",
-                    y2: "20",
-                    "stroke-dasharray": "5,5"
-                  }
-                })
-              : _vm._e(),
-            _vm._v(" //rightWallOuter All\n    "),
-            _vm.outer
-              ? _c("line", {
-                  staticStyle: {
-                    stroke: "rgb(255,0,0)",
-                    "stroke-width": "0.8"
-                  },
-                  attrs: {
-                    x1: "80",
-                    y1: "80",
-                    x2: "380",
-                    y2: "80",
-                    "stroke-dasharray": "5,5"
-                  }
-                })
-              : _vm._e(),
-            _vm._v(" //rightWallOuter Individual\n    "),
-            _vm.all
-              ? _c("line", {
-                  staticStyle: {
-                    stroke: "rgb(255,0,0)",
-                    "stroke-width": "0.8"
-                  },
-                  attrs: {
-                    x1: "80",
-                    y1: "50",
-                    x2: "365",
-                    y2: "50",
-                    "stroke-dasharray": "5,5"
-                  }
-                })
-              : _vm._e(),
-            _vm._v(" //rightWallCenter All\n    "),
-            _vm.center
-              ? _c("line", {
-                  staticStyle: {
-                    stroke: "rgb(255,0,0)",
-                    "stroke-width": "0.8"
-                  },
-                  attrs: {
-                    x1: "80",
-                    y1: "80",
-                    x2: "365",
-                    y2: "80",
-                    "stroke-dasharray": "5,5"
-                  }
-                })
-              : _vm._e(),
-            _vm._v(" //rightWallCenter Individual\n    "),
-            _vm.all || _vm.inner
-              ? _c("line", {
-                  staticStyle: {
-                    stroke: "rgb(255,0,0)",
-                    "stroke-width": "0.8"
-                  },
-                  attrs: {
-                    x1: "80",
-                    y1: "80",
-                    x2: "350",
-                    y2: "80",
-                    "stroke-dasharray": "5,5"
-                  }
-                })
-              : _vm._e(),
-            _vm._v(" //rightWallInner\n    "),
-            _vm.all || _vm.inner
-              ? _c(
-                  "text",
-                  {
-                    staticClass: "cursor-pointer",
-                    attrs: {
-                      "text-anchor": "inner",
-                      transform: "translate(215,78)"
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.change("rightWallInner")
-                      }
-                    }
-                  },
-                  [_vm._v(_vm._s(_vm.parts["rightWallInner"]))]
-                )
-              : _vm._e(),
-            _vm._v(" //rightWallInner\n    "),
-            _vm.all
-              ? _c(
-                  "text",
-                  {
-                    staticClass: "cursor-pointer",
-                    attrs: {
-                      "text-anchor": "center",
-                      transform: "translate(215,48)"
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.change("rightWallCenter")
-                      }
-                    }
-                  },
-                  [_vm._v(_vm._s(_vm.parts["rightWallCenter"]))]
-                )
-              : _vm._e(),
-            _vm._v(" //rightWallCenter All\n    "),
-            _vm.center
-              ? _c(
-                  "text",
-                  {
-                    staticClass: "cursor-pointer",
-                    attrs: {
-                      "text-anchor": "center",
-                      transform: "translate(210,75)"
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.change("rightWallCenter")
-                      }
-                    }
-                  },
-                  [_vm._v(_vm._s(_vm.parts["rightWallCenter"]))]
-                )
-              : _vm._e(),
-            _vm._v(" //rightWallCenter Individual\n    "),
-            _vm.all
-              ? _c(
-                  "text",
-                  {
-                    staticClass: "cursor-pointer",
-                    attrs: {
-                      "text-anchor": "outer",
-                      transform: "translate(215,18)"
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.change("rightWallOuter")
-                      }
-                    }
-                  },
-                  [_vm._v(_vm._s(_vm.parts["rightWallOuter"]))]
-                )
-              : _vm._e(),
-            _vm._v(" //rightWallOuter All\n    "),
-            _vm.outer
-              ? _c(
-                  "text",
-                  {
-                    staticClass: "cursor-pointer",
-                    attrs: {
-                      "text-anchor": "outer",
-                      transform: "translate(215,78)"
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.change("rightWallOuter")
-                      }
-                    }
-                  },
-                  [_vm._v(_vm._s(_vm.parts["rightWallOuter"]))]
-                )
-              : _vm._e(),
-            _vm._v(" //rightWallOuter Individual\n\n    "),
-            _vm._v(" "),
-            _vm.all
-              ? _c("line", {
-                  staticStyle: {
-                    stroke: "rgb(0,0,255)",
-                    "stroke-width": "0.8"
-                  },
-                  attrs: {
-                    x1: "20",
-                    y1: "80",
-                    x2: "80",
-                    y2: "80",
-                    "stroke-dasharray": "5,5"
-                  }
-                })
-              : _vm._e(),
-            _vm._v(" //leftCornerLine\n    "),
-            _vm.all
-              ? _c("line", {
-                  staticStyle: {
-                    stroke: "rgb(0,0,255)",
-                    "stroke-width": "0.8"
-                  },
-                  attrs: {
-                    x1: "20",
-                    y1: "380",
-                    x2: "80",
-                    y2: "380",
-                    "stroke-dasharray": "5,5"
-                  }
-                })
-              : _vm._e(),
-            _vm._v(" //leftWallOuterHelper\n    "),
-            _vm.all
-              ? _c("line", {
-                  staticStyle: {
-                    stroke: "rgb(0,0,255)",
-                    "stroke-width": "0.8"
-                  },
-                  attrs: {
-                    x1: "50",
-                    y1: "365",
-                    x2: "80",
-                    y2: "365",
-                    "stroke-dasharray": "5,5"
-                  }
-                })
-              : _vm._e(),
-            _vm._v(" //leftWallCenterHelper\n    "),
-            _vm.all
-              ? _c("line", {
-                  staticStyle: {
-                    stroke: "rgb(255,0,0)",
-                    "stroke-width": "0.8"
-                  },
-                  attrs: {
-                    x1: "20",
-                    y1: "80",
-                    x2: "20",
-                    y2: "380",
-                    "stroke-dasharray": "5,5"
-                  }
-                })
-              : _vm._e(),
-            _vm._v(" //leftWallOuter All\n    "),
-            _vm.outer
-              ? _c("line", {
-                  staticStyle: {
-                    stroke: "rgb(255,0,0)",
-                    "stroke-width": "0.8"
-                  },
-                  attrs: {
-                    x1: "80",
-                    y1: "80",
-                    x2: "80",
-                    y2: "380",
-                    "stroke-dasharray": "5,5"
-                  }
-                })
-              : _vm._e(),
-            _vm._v(" //leftWallOuter Individual\n    "),
-            _vm.all
-              ? _c("line", {
-                  staticStyle: {
-                    stroke: "rgb(255,0,0)",
-                    "stroke-width": "0.8"
-                  },
-                  attrs: {
-                    x1: "50",
-                    y1: "80",
-                    x2: "50",
-                    y2: "365",
-                    "stroke-dasharray": "5,5"
-                  }
-                })
-              : _vm._e(),
-            _vm._v(" //leftWallCenter All\n    "),
-            _vm.center
-              ? _c("line", {
-                  staticStyle: {
-                    stroke: "rgb(255,0,0)",
-                    "stroke-width": "0.8"
-                  },
-                  attrs: {
-                    x1: "80",
-                    y1: "80",
-                    x2: "80",
-                    y2: "365",
-                    "stroke-dasharray": "5,5"
-                  }
-                })
-              : _vm._e(),
-            _vm._v(" //leftWallCenter Individual\n    "),
-            _vm.all || _vm.inner
-              ? _c("line", {
-                  staticStyle: {
-                    stroke: "rgb(255,0,0)",
-                    "stroke-width": "0.8"
-                  },
-                  attrs: {
-                    x1: "80",
-                    y1: "80",
-                    x2: "80",
-                    y2: "350",
-                    "stroke-dasharray": "5,5"
-                  }
-                })
-              : _vm._e(),
-            _vm._v(" //leftWallInner\n    "),
-            _vm.all || _vm.inner
-              ? _c(
-                  "text",
-                  {
-                    staticClass: "cursor-pointer",
-                    attrs: {
-                      "text-anchor": "inner",
-                      transform: "translate(78,230) rotate(-90)"
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.change("leftWallInner")
-                      }
-                    }
-                  },
-                  [_vm._v(_vm._s(_vm.parts["leftWallInner"]))]
-                )
-              : _vm._e(),
-            _vm._v(" //leftWallInner\n    "),
-            _vm.all
-              ? _c(
-                  "text",
-                  {
-                    staticClass: "cursor-pointer",
-                    attrs: {
-                      "text-anchor": "center",
-                      transform: "translate(48,230) rotate(-90)"
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.change("leftWallCenter")
-                      }
-                    }
-                  },
-                  [_vm._v(_vm._s(_vm.parts["leftWallCenter"]))]
-                )
-              : _vm._e(),
-            _vm._v(" //leftWallCenter All\n    "),
-            _vm.center
-              ? _c(
-                  "text",
-                  {
-                    staticClass: "cursor-pointer",
-                    attrs: {
-                      "text-anchor": "center",
-                      transform: "translate(75,235) rotate(-90)"
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.change("leftWallCenter")
-                      }
-                    }
-                  },
-                  [_vm._v(_vm._s(_vm.parts["leftWallCenter"]))]
-                )
-              : _vm._e(),
-            _vm._v(" //leftWallCenter Individual\n    "),
-            _vm.all
-              ? _c(
-                  "text",
-                  {
-                    staticClass: "cursor-pointer",
-                    attrs: {
-                      "text-anchor": "outer",
-                      transform: "translate(18,230) rotate(-90)"
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.change("leftWallOuter")
-                      }
-                    }
-                  },
-                  [_vm._v(_vm._s(_vm.parts["leftWallOuter"]))]
-                )
-              : _vm._e(),
-            _vm._v(" //leftWallOuter All\n    "),
-            _vm.outer
-              ? _c(
-                  "text",
-                  {
-                    staticClass: "cursor-pointer",
-                    attrs: {
-                      "text-anchor": "outer",
-                      transform: "translate(78,240) rotate(-90)"
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.change("leftWallOuter")
-                      }
-                    }
-                  },
-                  [_vm._v(_vm._s(_vm.parts["leftWallOuter"]))]
-                )
-              : _vm._e(),
-            _vm._v(" //leftWallOuter Individual\n\n    "),
-            _vm._v(" "),
-            _vm.all || _vm.inner
-              ? _c("line", {
-                  staticStyle: { stroke: "rgb(0,0,0)", "stroke-width": "2" },
-                  attrs: { x1: "350", y1: "80", x2: "350", y2: "217" }
-                })
-              : _vm._e(),
-            _vm._v(" //rightGlassInner\n    "),
-            _vm.all
-              ? _c("line", {
-                  staticStyle: {
-                    stroke: "rgb(255,0,0)",
-                    "stroke-width": "0.35"
-                  },
-                  attrs: {
-                    x1: "365",
-                    y1: "80",
-                    x2: "365",
-                    y2: "224",
-                    "stroke-dasharray": "5,5"
-                  }
-                })
-              : _vm._e(),
-            _vm._v(" //rightGlassCenter All\n    "),
-            _vm.center
-              ? _c("line", {
-                  staticStyle: { stroke: "rgb(0,0,0)", "stroke-width": "2" },
-                  attrs: { x1: "365", y1: "80", x2: "365", y2: "224" }
-                })
-              : _vm._e(),
-            _vm._v(" //rightGlassCenter Individual\n    "),
-            _vm.all || _vm.outer
-              ? _c("line", {
-                  staticStyle: { stroke: "rgb(0,0,0)", "stroke-width": "2" },
-                  attrs: { x1: "380", y1: "80", x2: "380", y2: "230" }
-                })
-              : _vm._e(),
-            _vm._v(" //rightGlassOuter\n    "),
-            _vm.all || _vm.inner
-              ? _c(
-                  "text",
-                  {
-                    staticClass: "cursor-pointer",
-                    attrs: {
-                      "text-anchor": "inner",
-                      transform: "translate(347,160) rotate(-90)"
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.change("rightGlassInner")
-                      }
-                    }
-                  },
-                  [_vm._v(_vm._s(_vm.parts["rightGlassInner"]))]
-                )
-              : _vm._e(),
-            _vm._v(" //rightGlassInner\n    "),
-            _vm.all
-              ? _c(
-                  "text",
-                  {
-                    staticClass: "cursor-pointer",
-                    attrs: {
-                      "text-anchor": "center",
-                      transform: "translate(371,165) rotate(-90)"
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.change("rightGlassCenter")
-                      }
-                    }
-                  },
-                  [_vm._v(_vm._s(_vm.parts["rightGlassCenter"]))]
-                )
-              : _vm._e(),
-            _vm._v(" //rightGlassCenter All\n    "),
-            _vm.center
-              ? _c(
-                  "text",
-                  {
-                    staticClass: "cursor-pointer",
-                    attrs: {
-                      "text-anchor": "center",
-                      transform: "translate(360,165) rotate(-90)"
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.change("rightGlassCenter")
-                      }
-                    }
-                  },
-                  [_vm._v(_vm._s(_vm.parts["rightGlassCenter"]))]
-                )
-              : _vm._e(),
-            _vm._v(" //rightGlassInner Individual\n    "),
-            _vm.all || _vm.outer
-              ? _c(
-                  "text",
-                  {
-                    staticClass: "cursor-pointer",
-                    attrs: {
-                      "text-anchor": "outer",
-                      transform: "translate(396,170) rotate(-90)"
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.change("rightGlassOuter")
-                      }
-                    }
-                  },
-                  [_vm._v(_vm._s(_vm.parts["rightGlassOuter"]))]
-                )
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.all || _vm.inner
-              ? _c("line", {
-                  staticStyle: { stroke: "rgb(0,0,0)", "stroke-width": "2" },
-                  attrs: { x1: "80", y1: "350", x2: "217", y2: "350" }
-                })
-              : _vm._e(),
-            _vm._v(" //leftGlassInner\n    "),
-            _vm.all
-              ? _c("line", {
-                  staticStyle: {
-                    stroke: "rgb(255,0,0)",
-                    "stroke-width": "0.35"
-                  },
-                  attrs: {
-                    x1: "80",
-                    y1: "365",
-                    x2: "224",
-                    y2: "365",
-                    "stroke-dasharray": "5,5"
-                  }
-                })
-              : _vm._e(),
-            _vm._v(" //leftGlassCenter All\n    "),
-            _vm.center
-              ? _c("line", {
-                  staticStyle: { stroke: "rgb(0,0,0)", "stroke-width": "2" },
-                  attrs: { x1: "80", y1: "365", x2: "224", y2: "365" }
-                })
-              : _vm._e(),
-            _vm._v(" //leftGlassCenter Individual\n    "),
-            _vm.all || _vm.outer
-              ? _c("line", {
-                  staticStyle: { stroke: "rgb(0,0,0)", "stroke-width": "2" },
-                  attrs: { x1: "80", y1: "380", x2: "230", y2: "380" }
-                })
-              : _vm._e(),
-            _vm._v(" //leftGlassOuter\n    "),
-            _vm.all || _vm.inner
-              ? _c(
-                  "text",
-                  {
-                    staticClass: "cursor-pointer",
-                    attrs: {
-                      "text-anchor": "inner",
-                      transform: "translate(140,347)"
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.change("leftGlassInner")
-                      }
-                    }
-                  },
-                  [_vm._v(_vm._s(_vm.parts["leftGlassInner"]))]
-                )
-              : _vm._e(),
-            _vm._v(" //leftGlassInner\n    "),
-            _vm.all
-              ? _c(
-                  "text",
-                  {
-                    staticClass: "cursor-pointer",
-                    attrs: {
-                      "text-anchor": "center",
-                      transform: "translate(145,371)"
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.change("leftGlassCenter")
-                      }
-                    }
-                  },
-                  [_vm._v(_vm._s(_vm.parts["leftGlassCenter"]))]
-                )
-              : _vm._e(),
-            _vm._v(" //leftGlassCenter All\n    "),
-            _vm.center
-              ? _c(
-                  "text",
-                  {
-                    staticClass: "cursor-pointer",
-                    attrs: {
-                      "text-anchor": "center",
-                      transform: "translate(145,360)"
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.change("leftGlassCenter")
-                      }
-                    }
-                  },
-                  [_vm._v(_vm._s(_vm.parts["leftGlassCenter"]))]
-                )
-              : _vm._e(),
-            _vm._v(" //leftGlassCenter Individual\n    "),
-            _vm.all || _vm.outer
-              ? _c(
-                  "text",
-                  {
-                    staticClass: "cursor-pointer",
-                    attrs: {
-                      "text-anchor": "outer",
-                      transform: "translate(150,396)"
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.change("leftGlassOuter")
-                      }
-                    }
-                  },
-                  [_vm._v(_vm._s(_vm.parts["leftGlassOuter"]))]
-                )
-              : _vm._e(),
-            _vm._v(" //leftGlassOuter\n\n    "),
-            _vm._v(" "),
-            _vm.all || _vm.inner
-              ? _c("line", {
-                  staticStyle: { stroke: "rgb(0,0,255)", "stroke-width": "2" },
-                  attrs: { x1: "217", y1: "350", x2: "350", y2: "217" }
-                })
-              : _vm._e(),
-            _vm._v(" //doorInner\n    "),
-            _vm.all
-              ? _c("line", {
-                  staticStyle: {
-                    stroke: "rgb(255,0,0)",
-                    "stroke-width": "0.35"
-                  },
-                  attrs: {
-                    x1: "224",
-                    y1: "365",
-                    x2: "365",
-                    y2: "224",
-                    "stroke-dasharray": "5,5"
-                  }
-                })
-              : _vm._e(),
-            _vm._v(" //doorCenter All\n    "),
-            _vm.center
-              ? _c("line", {
-                  staticStyle: { stroke: "rgb(0,0,255)", "stroke-width": "2" },
-                  attrs: { x1: "224", y1: "365", x2: "365", y2: "224" }
-                })
-              : _vm._e(),
-            _vm._v(" //doorCenter Individual\n    "),
-            _vm.all || _vm.outer
-              ? _c("line", {
-                  staticStyle: { stroke: "rgb(0,0,255)", "stroke-width": "2" },
-                  attrs: { x1: "230", y1: "380", x2: "380", y2: "230" }
-                })
-              : _vm._e(),
-            _vm._v(" //doorOuter\n    "),
-            _vm.all || _vm.inner
-              ? _c(
-                  "text",
-                  {
-                    staticClass: "cursor-pointer",
-                    attrs: {
-                      "text-anchor": "inner",
-                      transform: "translate(270,285) rotate(-45)"
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.change("doorInner")
-                      }
-                    }
-                  },
-                  [_vm._v(_vm._s(_vm.parts["doorInner"]))]
-                )
-              : _vm._e(),
-            _vm._v(" //doorInner\n    "),
-            _vm.all
-              ? _c(
-                  "text",
-                  {
-                    staticClass: "cursor-pointer",
-                    attrs: {
-                      "text-anchor": "center",
-                      transform: "translate(290,305) rotate(-45)"
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.change("doorCenter")
-                      }
-                    }
-                  },
-                  [_vm._v(_vm._s(_vm.parts["doorCenter"]))]
-                )
-              : _vm._e(),
-            _vm._v(" //doorCenter All\n    "),
-            _vm.center
-              ? _c(
-                  "text",
-                  {
-                    staticClass: "cursor-pointer",
-                    attrs: {
-                      "text-anchor": "center",
-                      transform: "translate(280,295) rotate(-45)"
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.change("doorCenter")
-                      }
-                    }
-                  },
-                  [_vm._v(_vm._s(_vm.parts["doorCenter"]))]
-                )
-              : _vm._e(),
-            _vm._v(" //doorCenter Individual\n    "),
-            _vm.all || _vm.outer
-              ? _c(
-                  "text",
-                  {
-                    staticClass: "cursor-pointer",
-                    attrs: {
-                      "text-anchor": "outer",
-                      transform: "translate(310,325) rotate(-45)"
-                    },
-                    on: {
-                      click: function($event) {
-                        return _vm.change("doorOuter")
-                      }
-                    }
-                  },
-                  [_vm._v(_vm._s(_vm.parts["doorOuter"]))]
-                )
-              : _vm._e(),
-            _vm._v(" //doorOuter\n\n    "),
-            _vm.all
-              ? _c("svg", [
-                  _c("line", {
-                    staticStyle: { stroke: "rgb(0,0,0)", "stroke-width": "1" },
-                    attrs: { x1: "350", y1: "217", x2: "380", y2: "230" }
-                  }),
-                  _vm._v(" //right\n      "),
-                  _c("line", {
-                    staticStyle: { stroke: "rgb(0,0,0)", "stroke-width": "1" },
-                    attrs: { x1: "217", y1: "350", x2: "230", y2: "380" }
-                  }),
-                  _vm._v(" //left\n    ")
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.all
-              ? _c("svg", [
-                  _c("line", {
-                    staticStyle: { stroke: "rgb(0,0,0)", "stroke-width": "2" },
-                    attrs: { x1: "350", y1: "80", x2: "380", y2: "80" }
-                  }),
-                  _vm._v(" //right\n      "),
-                  _c("line", {
-                    staticStyle: { stroke: "rgb(0,0,0)", "stroke-width": "2" },
-                    attrs: { x1: "80", y1: "350", x2: "80", y2: "380" }
-                  }),
-                  _vm._v(" //left\n      "),
-                  _c(
-                    "text",
-                    {
-                      staticClass: "cursor-pointer",
-                      attrs: {
-                        "text-anchor": "right",
-                        transform: "translate(351,95)"
-                      },
-                      on: {
-                        click: function($event) {
-                          return _vm.change("width")
-                        }
-                      }
-                    },
-                    [_vm._v(_vm._s(_vm.parts["width"]))]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "text",
-                    {
-                      staticClass: "cursor-pointer",
-                      attrs: {
-                        "text-anchor": "left",
-                        transform: "translate(95,379) rotate(-90)"
-                      },
-                      on: {
-                        click: function($event) {
-                          return _vm.change("width")
-                        }
-                      }
-                    },
-                    [_vm._v(_vm._s(_vm.parts["width"]))]
-                  )
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.inner
-              ? _c("svg", [
-                  _c("line", {
+    _c("div", { staticClass: "flex justify-center" }, [
+      _vm.svg
+        ? _c(
+            "svg",
+            { staticClass: "mt-5", attrs: { width: "400", height: "400" } },
+            [
+              _vm.all
+                ? _c("line", {
                     staticStyle: {
-                      stroke: "rgb(255,0,0)",
+                      stroke: "rgb(0,0,255)",
                       "stroke-width": "0.8"
                     },
                     attrs: {
-                      x1: "350",
-                      y1: "200",
-                      x2: "350",
-                      y2: "350",
+                      x1: "80",
+                      y1: "20",
+                      x2: "80",
+                      y2: "80",
                       "stroke-dasharray": "5,5"
                     }
-                  }),
-                  _vm._v(" //rightCutOutInner\n      "),
-                  _c("line", {
+                  })
+                : _vm._e(),
+              _vm._v(" //rightCornerLine\n      "),
+              _vm.all
+                ? _c("line", {
                     staticStyle: {
-                      stroke: "rgb(255,0,0)",
+                      stroke: "rgb(0,0,255)",
                       "stroke-width": "0.8"
                     },
                     attrs: {
-                      x1: "200",
-                      y1: "350",
-                      x2: "350",
-                      y2: "350",
+                      x1: "380",
+                      y1: "20",
+                      x2: "380",
+                      y2: "80",
                       "stroke-dasharray": "5,5"
                     }
-                  }),
-                  _vm._v(" //leftCutOutInner\n      "),
-                  _c(
-                    "text",
-                    {
-                      staticClass: "cursor-pointer",
-                      attrs: {
-                        "text-anchor": "right",
-                        transform: "translate(347,295) rotate(-90)"
-                      },
-                      on: {
-                        click: function($event) {
-                          return _vm.change("cutOutInner")
-                        }
-                      }
-                    },
-                    [_vm._v(_vm._s(_vm.parts["cutOutInner"]))]
-                  ),
-                  _vm._v(" //rightCutOutInner\n      "),
-                  _c(
-                    "text",
-                    {
-                      staticClass: "cursor-pointer",
-                      attrs: {
-                        "text-anchor": "left",
-                        transform: "translate(270,347)"
-                      },
-                      on: {
-                        click: function($event) {
-                          return _vm.change("cutOutInner")
-                        }
-                      }
-                    },
-                    [_vm._v(_vm._s(_vm.parts["cutOutInner"]))]
-                  ),
-                  _vm._v(" //leftCutOutInner\n    ")
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.center
-              ? _c("svg", [
-                  _c("line", {
+                  })
+                : _vm._e(),
+              _vm._v(" //rightWallOuterHelper\n      "),
+              _vm.all
+                ? _c("line", {
                     staticStyle: {
-                      stroke: "rgb(255,0,0)",
+                      stroke: "rgb(0,0,255)",
                       "stroke-width": "0.8"
                     },
                     attrs: {
                       x1: "365",
-                      y1: "224",
+                      y1: "50",
                       x2: "365",
-                      y2: "365",
+                      y2: "80",
                       "stroke-dasharray": "5,5"
                     }
-                  }),
-                  _vm._v(" //rightCutOutCenter\n      "),
-                  _c("line", {
+                  })
+                : _vm._e(),
+              _vm._v(" //rightWallCenterHelper\n      "),
+              _vm.all
+                ? _c("line", {
                     staticStyle: {
                       stroke: "rgb(255,0,0)",
                       "stroke-width": "0.8"
+                    },
+                    attrs: {
+                      x1: "80",
+                      y1: "20",
+                      x2: "380",
+                      y2: "20",
+                      "stroke-dasharray": "5,5"
+                    }
+                  })
+                : _vm._e(),
+              _vm._v(" //rightWallOuter All\n      "),
+              _vm.outer
+                ? _c("line", {
+                    staticStyle: {
+                      stroke: "rgb(255,0,0)",
+                      "stroke-width": "0.8"
+                    },
+                    attrs: {
+                      x1: "80",
+                      y1: "80",
+                      x2: "380",
+                      y2: "80",
+                      "stroke-dasharray": "5,5"
+                    }
+                  })
+                : _vm._e(),
+              _vm._v(" //rightWallOuter Individual\n      "),
+              _vm.all
+                ? _c("line", {
+                    staticStyle: {
+                      stroke: "rgb(255,0,0)",
+                      "stroke-width": "0.8"
+                    },
+                    attrs: {
+                      x1: "80",
+                      y1: "50",
+                      x2: "365",
+                      y2: "50",
+                      "stroke-dasharray": "5,5"
+                    }
+                  })
+                : _vm._e(),
+              _vm._v(" //rightWallCenter All\n      "),
+              _vm.center
+                ? _c("line", {
+                    staticStyle: {
+                      stroke: "rgb(255,0,0)",
+                      "stroke-width": "0.8"
+                    },
+                    attrs: {
+                      x1: "80",
+                      y1: "80",
+                      x2: "365",
+                      y2: "80",
+                      "stroke-dasharray": "5,5"
+                    }
+                  })
+                : _vm._e(),
+              _vm._v(" //rightWallCenter Individual\n      "),
+              _vm.all || _vm.inner
+                ? _c("line", {
+                    staticStyle: {
+                      stroke: "rgb(255,0,0)",
+                      "stroke-width": "0.8"
+                    },
+                    attrs: {
+                      x1: "80",
+                      y1: "80",
+                      x2: "350",
+                      y2: "80",
+                      "stroke-dasharray": "5,5"
+                    }
+                  })
+                : _vm._e(),
+              _vm._v(" //rightWallInner\n      "),
+              _vm.all || _vm.inner
+                ? _c(
+                    "text",
+                    {
+                      staticClass: "cursor-pointer",
+                      attrs: {
+                        "text-anchor": "inner",
+                        transform: "translate(215,78)"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.change("rightWallInner")
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(_vm.parts["rightWallInner"]))]
+                  )
+                : _vm._e(),
+              _vm._v(" //rightWallInner\n      "),
+              _vm.all
+                ? _c(
+                    "text",
+                    {
+                      staticClass: "cursor-pointer",
+                      attrs: {
+                        "text-anchor": "center",
+                        transform: "translate(215,48)"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.change("rightWallCenter")
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(_vm.parts["rightWallCenter"]))]
+                  )
+                : _vm._e(),
+              _vm._v(" //rightWallCenter All\n      "),
+              _vm.center
+                ? _c(
+                    "text",
+                    {
+                      staticClass: "cursor-pointer",
+                      attrs: {
+                        "text-anchor": "center",
+                        transform: "translate(210,75)"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.change("rightWallCenter")
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(_vm.parts["rightWallCenter"]))]
+                  )
+                : _vm._e(),
+              _vm._v(" //rightWallCenter Individual\n      "),
+              _vm.all
+                ? _c(
+                    "text",
+                    {
+                      staticClass: "cursor-pointer",
+                      attrs: {
+                        "text-anchor": "outer",
+                        transform: "translate(215,18)"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.change("rightWallOuter")
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(_vm.parts["rightWallOuter"]))]
+                  )
+                : _vm._e(),
+              _vm._v(" //rightWallOuter All\n      "),
+              _vm.outer
+                ? _c(
+                    "text",
+                    {
+                      staticClass: "cursor-pointer",
+                      attrs: {
+                        "text-anchor": "outer",
+                        transform: "translate(215,78)"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.change("rightWallOuter")
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(_vm.parts["rightWallOuter"]))]
+                  )
+                : _vm._e(),
+              _vm._v(" //rightWallOuter Individual\n\n      "),
+              _vm._v(" "),
+              _vm.all
+                ? _c("line", {
+                    staticStyle: {
+                      stroke: "rgb(0,0,255)",
+                      "stroke-width": "0.8"
+                    },
+                    attrs: {
+                      x1: "20",
+                      y1: "80",
+                      x2: "80",
+                      y2: "80",
+                      "stroke-dasharray": "5,5"
+                    }
+                  })
+                : _vm._e(),
+              _vm._v(" //leftCornerLine\n      "),
+              _vm.all
+                ? _c("line", {
+                    staticStyle: {
+                      stroke: "rgb(0,0,255)",
+                      "stroke-width": "0.8"
+                    },
+                    attrs: {
+                      x1: "20",
+                      y1: "380",
+                      x2: "80",
+                      y2: "380",
+                      "stroke-dasharray": "5,5"
+                    }
+                  })
+                : _vm._e(),
+              _vm._v(" //leftWallOuterHelper\n      "),
+              _vm.all
+                ? _c("line", {
+                    staticStyle: {
+                      stroke: "rgb(0,0,255)",
+                      "stroke-width": "0.8"
+                    },
+                    attrs: {
+                      x1: "50",
+                      y1: "365",
+                      x2: "80",
+                      y2: "365",
+                      "stroke-dasharray": "5,5"
+                    }
+                  })
+                : _vm._e(),
+              _vm._v(" //leftWallCenterHelper\n      "),
+              _vm.all
+                ? _c("line", {
+                    staticStyle: {
+                      stroke: "rgb(255,0,0)",
+                      "stroke-width": "0.8"
+                    },
+                    attrs: {
+                      x1: "20",
+                      y1: "80",
+                      x2: "20",
+                      y2: "380",
+                      "stroke-dasharray": "5,5"
+                    }
+                  })
+                : _vm._e(),
+              _vm._v(" //leftWallOuter All\n      "),
+              _vm.outer
+                ? _c("line", {
+                    staticStyle: {
+                      stroke: "rgb(255,0,0)",
+                      "stroke-width": "0.8"
+                    },
+                    attrs: {
+                      x1: "80",
+                      y1: "80",
+                      x2: "80",
+                      y2: "380",
+                      "stroke-dasharray": "5,5"
+                    }
+                  })
+                : _vm._e(),
+              _vm._v(" //leftWallOuter Individual\n      "),
+              _vm.all
+                ? _c("line", {
+                    staticStyle: {
+                      stroke: "rgb(255,0,0)",
+                      "stroke-width": "0.8"
+                    },
+                    attrs: {
+                      x1: "50",
+                      y1: "80",
+                      x2: "50",
+                      y2: "365",
+                      "stroke-dasharray": "5,5"
+                    }
+                  })
+                : _vm._e(),
+              _vm._v(" //leftWallCenter All\n      "),
+              _vm.center
+                ? _c("line", {
+                    staticStyle: {
+                      stroke: "rgb(255,0,0)",
+                      "stroke-width": "0.8"
+                    },
+                    attrs: {
+                      x1: "80",
+                      y1: "80",
+                      x2: "80",
+                      y2: "365",
+                      "stroke-dasharray": "5,5"
+                    }
+                  })
+                : _vm._e(),
+              _vm._v(" //leftWallCenter Individual\n      "),
+              _vm.all || _vm.inner
+                ? _c("line", {
+                    staticStyle: {
+                      stroke: "rgb(255,0,0)",
+                      "stroke-width": "0.8"
+                    },
+                    attrs: {
+                      x1: "80",
+                      y1: "80",
+                      x2: "80",
+                      y2: "350",
+                      "stroke-dasharray": "5,5"
+                    }
+                  })
+                : _vm._e(),
+              _vm._v(" //leftWallInner\n      "),
+              _vm.all || _vm.inner
+                ? _c(
+                    "text",
+                    {
+                      staticClass: "cursor-pointer",
+                      attrs: {
+                        "text-anchor": "inner",
+                        transform: "translate(78,230) rotate(-90)"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.change("leftWallInner")
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(_vm.parts["leftWallInner"]))]
+                  )
+                : _vm._e(),
+              _vm._v(" //leftWallInner\n      "),
+              _vm.all
+                ? _c(
+                    "text",
+                    {
+                      staticClass: "cursor-pointer",
+                      attrs: {
+                        "text-anchor": "center",
+                        transform: "translate(48,230) rotate(-90)"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.change("leftWallCenter")
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(_vm.parts["leftWallCenter"]))]
+                  )
+                : _vm._e(),
+              _vm._v(" //leftWallCenter All\n      "),
+              _vm.center
+                ? _c(
+                    "text",
+                    {
+                      staticClass: "cursor-pointer",
+                      attrs: {
+                        "text-anchor": "center",
+                        transform: "translate(75,235) rotate(-90)"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.change("leftWallCenter")
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(_vm.parts["leftWallCenter"]))]
+                  )
+                : _vm._e(),
+              _vm._v(" //leftWallCenter Individual\n      "),
+              _vm.all
+                ? _c(
+                    "text",
+                    {
+                      staticClass: "cursor-pointer",
+                      attrs: {
+                        "text-anchor": "outer",
+                        transform: "translate(18,230) rotate(-90)"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.change("leftWallOuter")
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(_vm.parts["leftWallOuter"]))]
+                  )
+                : _vm._e(),
+              _vm._v(" //leftWallOuter All\n      "),
+              _vm.outer
+                ? _c(
+                    "text",
+                    {
+                      staticClass: "cursor-pointer",
+                      attrs: {
+                        "text-anchor": "outer",
+                        transform: "translate(78,240) rotate(-90)"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.change("leftWallOuter")
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(_vm.parts["leftWallOuter"]))]
+                  )
+                : _vm._e(),
+              _vm._v(" //leftWallOuter Individual\n\n      "),
+              _vm._v(" "),
+              _vm.all || _vm.inner
+                ? _c("line", {
+                    staticStyle: { stroke: "rgb(0,0,0)", "stroke-width": "2" },
+                    attrs: { x1: "350", y1: "80", x2: "350", y2: "217" }
+                  })
+                : _vm._e(),
+              _vm._v(" //rightGlassInner\n      "),
+              _vm.all
+                ? _c("line", {
+                    staticStyle: {
+                      stroke: "rgb(255,0,0)",
+                      "stroke-width": "0.35"
+                    },
+                    attrs: {
+                      x1: "365",
+                      y1: "80",
+                      x2: "365",
+                      y2: "224",
+                      "stroke-dasharray": "5,5"
+                    }
+                  })
+                : _vm._e(),
+              _vm._v(" //rightGlassCenter All\n      "),
+              _vm.center
+                ? _c("line", {
+                    staticStyle: { stroke: "rgb(0,0,0)", "stroke-width": "2" },
+                    attrs: { x1: "365", y1: "80", x2: "365", y2: "224" }
+                  })
+                : _vm._e(),
+              _vm._v(" //rightGlassCenter Individual\n      "),
+              _vm.all || _vm.outer
+                ? _c("line", {
+                    staticStyle: { stroke: "rgb(0,0,0)", "stroke-width": "2" },
+                    attrs: { x1: "380", y1: "80", x2: "380", y2: "230" }
+                  })
+                : _vm._e(),
+              _vm._v(" //rightGlassOuter\n      "),
+              _vm.all || _vm.inner
+                ? _c(
+                    "text",
+                    {
+                      staticClass: "cursor-pointer",
+                      attrs: {
+                        "text-anchor": "inner",
+                        transform: "translate(347,160) rotate(-90)"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.change("rightGlassInner")
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(_vm.parts["rightGlassInner"]))]
+                  )
+                : _vm._e(),
+              _vm._v(" //rightGlassInner\n      "),
+              _vm.all
+                ? _c(
+                    "text",
+                    {
+                      staticClass: "cursor-pointer",
+                      attrs: {
+                        "text-anchor": "center",
+                        transform: "translate(371,165) rotate(-90)"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.change("rightGlassCenter")
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(_vm.parts["rightGlassCenter"]))]
+                  )
+                : _vm._e(),
+              _vm._v(" //rightGlassCenter All\n      "),
+              _vm.center
+                ? _c(
+                    "text",
+                    {
+                      staticClass: "cursor-pointer",
+                      attrs: {
+                        "text-anchor": "center",
+                        transform: "translate(360,165) rotate(-90)"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.change("rightGlassCenter")
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(_vm.parts["rightGlassCenter"]))]
+                  )
+                : _vm._e(),
+              _vm._v(" //rightGlassInner Individual\n      "),
+              _vm.all || _vm.outer
+                ? _c(
+                    "text",
+                    {
+                      staticClass: "cursor-pointer",
+                      attrs: {
+                        "text-anchor": "outer",
+                        transform: "translate(396,170) rotate(-90)"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.change("rightGlassOuter")
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(_vm.parts["rightGlassOuter"]))]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.all || _vm.inner
+                ? _c("line", {
+                    staticStyle: { stroke: "rgb(0,0,0)", "stroke-width": "2" },
+                    attrs: { x1: "80", y1: "350", x2: "217", y2: "350" }
+                  })
+                : _vm._e(),
+              _vm._v(" //leftGlassInner\n      "),
+              _vm.all
+                ? _c("line", {
+                    staticStyle: {
+                      stroke: "rgb(255,0,0)",
+                      "stroke-width": "0.35"
+                    },
+                    attrs: {
+                      x1: "80",
+                      y1: "365",
+                      x2: "224",
+                      y2: "365",
+                      "stroke-dasharray": "5,5"
+                    }
+                  })
+                : _vm._e(),
+              _vm._v(" //leftGlassCenter All\n      "),
+              _vm.center
+                ? _c("line", {
+                    staticStyle: { stroke: "rgb(0,0,0)", "stroke-width": "2" },
+                    attrs: { x1: "80", y1: "365", x2: "224", y2: "365" }
+                  })
+                : _vm._e(),
+              _vm._v(" //leftGlassCenter Individual\n      "),
+              _vm.all || _vm.outer
+                ? _c("line", {
+                    staticStyle: { stroke: "rgb(0,0,0)", "stroke-width": "2" },
+                    attrs: { x1: "80", y1: "380", x2: "230", y2: "380" }
+                  })
+                : _vm._e(),
+              _vm._v(" //leftGlassOuter\n      "),
+              _vm.all || _vm.inner
+                ? _c(
+                    "text",
+                    {
+                      staticClass: "cursor-pointer",
+                      attrs: {
+                        "text-anchor": "inner",
+                        transform: "translate(140,347)"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.change("leftGlassInner")
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(_vm.parts["leftGlassInner"]))]
+                  )
+                : _vm._e(),
+              _vm._v(" //leftGlassInner\n      "),
+              _vm.all
+                ? _c(
+                    "text",
+                    {
+                      staticClass: "cursor-pointer",
+                      attrs: {
+                        "text-anchor": "center",
+                        transform: "translate(145,371)"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.change("leftGlassCenter")
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(_vm.parts["leftGlassCenter"]))]
+                  )
+                : _vm._e(),
+              _vm._v(" //leftGlassCenter All\n      "),
+              _vm.center
+                ? _c(
+                    "text",
+                    {
+                      staticClass: "cursor-pointer",
+                      attrs: {
+                        "text-anchor": "center",
+                        transform: "translate(145,360)"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.change("leftGlassCenter")
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(_vm.parts["leftGlassCenter"]))]
+                  )
+                : _vm._e(),
+              _vm._v(" //leftGlassCenter Individual\n      "),
+              _vm.all || _vm.outer
+                ? _c(
+                    "text",
+                    {
+                      staticClass: "cursor-pointer",
+                      attrs: {
+                        "text-anchor": "outer",
+                        transform: "translate(150,396)"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.change("leftGlassOuter")
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(_vm.parts["leftGlassOuter"]))]
+                  )
+                : _vm._e(),
+              _vm._v(" //leftGlassOuter\n\n      "),
+              _vm._v(" "),
+              _vm.all || _vm.inner
+                ? _c("line", {
+                    staticStyle: {
+                      stroke: "rgb(0,0,255)",
+                      "stroke-width": "2"
+                    },
+                    attrs: { x1: "217", y1: "350", x2: "350", y2: "217" }
+                  })
+                : _vm._e(),
+              _vm._v(" //doorInner\n      "),
+              _vm.all
+                ? _c("line", {
+                    staticStyle: {
+                      stroke: "rgb(255,0,0)",
+                      "stroke-width": "0.35"
                     },
                     attrs: {
                       x1: "224",
                       y1: "365",
                       x2: "365",
-                      y2: "365",
+                      y2: "224",
                       "stroke-dasharray": "5,5"
                     }
-                  }),
-                  _vm._v(" //leftCutOutCenter\n      "),
-                  _c(
-                    "text",
-                    {
-                      staticClass: "cursor-pointer",
-                      attrs: {
-                        "text-anchor": "right",
-                        transform: "translate(362,310) rotate(-90)"
-                      },
-                      on: {
-                        click: function($event) {
-                          return _vm.change("cutOutCenter")
-                        }
-                      }
-                    },
-                    [_vm._v(_vm._s(_vm.parts["cutOutCenter"]))]
-                  ),
-                  _vm._v(" //rightCutOutCenter\n      "),
-                  _c(
-                    "text",
-                    {
-                      staticClass: "cursor-pointer",
-                      attrs: {
-                        "text-anchor": "left",
-                        transform: "translate(285,362)"
-                      },
-                      on: {
-                        click: function($event) {
-                          return _vm.change("cutOutCenter")
-                        }
-                      }
-                    },
-                    [_vm._v(_vm._s(_vm.parts["cutOutCenter"]))]
-                  ),
-                  _vm._v(" //leftCutOutCenter\n    ")
-                ])
-              : _vm._e(),
-            _vm._v(" "),
-            _vm.all || _vm.outer
-              ? _c("svg", [
-                  _c("line", {
+                  })
+                : _vm._e(),
+              _vm._v(" //doorCenter All\n      "),
+              _vm.center
+                ? _c("line", {
                     staticStyle: {
-                      stroke: "rgb(255,0,0)",
-                      "stroke-width": "0.8"
+                      stroke: "rgb(0,0,255)",
+                      "stroke-width": "2"
                     },
-                    attrs: {
-                      x1: "380",
-                      y1: "230",
-                      x2: "380",
-                      y2: "380",
-                      "stroke-dasharray": "5,5"
-                    }
-                  }),
-                  _vm._v(" //rightCutOutOuter\n      "),
-                  _c("line", {
+                    attrs: { x1: "224", y1: "365", x2: "365", y2: "224" }
+                  })
+                : _vm._e(),
+              _vm._v(" //doorCenter Individual\n      "),
+              _vm.all || _vm.outer
+                ? _c("line", {
                     staticStyle: {
-                      stroke: "rgb(255,0,0)",
-                      "stroke-width": "0.8"
+                      stroke: "rgb(0,0,255)",
+                      "stroke-width": "2"
                     },
-                    attrs: {
-                      x1: "230",
-                      y1: "380",
-                      x2: "380",
-                      y2: "380",
-                      "stroke-dasharray": "5,5"
-                    }
-                  }),
-                  _vm._v(" //leftCutOutOuter\n      "),
-                  _c(
+                    attrs: { x1: "230", y1: "380", x2: "380", y2: "230" }
+                  })
+                : _vm._e(),
+              _vm._v(" //doorOuter\n      "),
+              _vm.all || _vm.inner
+                ? _c(
                     "text",
                     {
                       staticClass: "cursor-pointer",
                       attrs: {
-                        "text-anchor": "right",
-                        transform: "translate(377,325) rotate(-90)"
+                        "text-anchor": "inner",
+                        transform: "translate(270,285) rotate(-45)"
                       },
                       on: {
                         click: function($event) {
-                          return _vm.change("cutOutOuter")
+                          return _vm.change("doorInner")
                         }
                       }
                     },
-                    [_vm._v(_vm._s(_vm.parts["cutOutOuter"]))]
-                  ),
-                  _vm._v(" "),
-                  _c(
-                    "text",
-                    {
-                      staticClass: "cursor-pointer",
-                      attrs: {
-                        "text-anchor": "left",
-                        transform: "translate(300,377)"
-                      },
-                      on: {
-                        click: function($event) {
-                          return _vm.change("cutOutOuter")
-                        }
-                      }
-                    },
-                    [_vm._v(_vm._s(_vm.parts["cutOutOuter"]))]
+                    [_vm._v(_vm._s(_vm.parts["doorInner"]))]
                   )
-                ])
-              : _vm._e()
-          ]
-        )
-      : _vm._e()
+                : _vm._e(),
+              _vm._v(" //doorInner\n      "),
+              _vm.all
+                ? _c(
+                    "text",
+                    {
+                      staticClass: "cursor-pointer",
+                      attrs: {
+                        "text-anchor": "center",
+                        transform: "translate(290,305) rotate(-45)"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.change("doorCenter")
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(_vm.parts["doorCenter"]))]
+                  )
+                : _vm._e(),
+              _vm._v(" //doorCenter All\n      "),
+              _vm.center
+                ? _c(
+                    "text",
+                    {
+                      staticClass: "cursor-pointer",
+                      attrs: {
+                        "text-anchor": "center",
+                        transform: "translate(280,295) rotate(-45)"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.change("doorCenter")
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(_vm.parts["doorCenter"]))]
+                  )
+                : _vm._e(),
+              _vm._v(" //doorCenter Individual\n      "),
+              _vm.all || _vm.outer
+                ? _c(
+                    "text",
+                    {
+                      staticClass: "cursor-pointer",
+                      attrs: {
+                        "text-anchor": "outer",
+                        transform: "translate(310,325) rotate(-45)"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.change("doorOuter")
+                        }
+                      }
+                    },
+                    [_vm._v(_vm._s(_vm.parts["doorOuter"]))]
+                  )
+                : _vm._e(),
+              _vm._v(" //doorOuter\n\n      "),
+              _vm.all
+                ? _c("svg", [
+                    _c("line", {
+                      staticStyle: {
+                        stroke: "rgb(0,0,0)",
+                        "stroke-width": "1"
+                      },
+                      attrs: { x1: "350", y1: "217", x2: "380", y2: "230" }
+                    }),
+                    _vm._v(" //right\n        "),
+                    _c("line", {
+                      staticStyle: {
+                        stroke: "rgb(0,0,0)",
+                        "stroke-width": "1"
+                      },
+                      attrs: { x1: "217", y1: "350", x2: "230", y2: "380" }
+                    }),
+                    _vm._v(" //left\n      ")
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.all
+                ? _c("svg", [
+                    _c("line", {
+                      staticStyle: {
+                        stroke: "rgb(0,0,0)",
+                        "stroke-width": "2"
+                      },
+                      attrs: { x1: "350", y1: "80", x2: "380", y2: "80" }
+                    }),
+                    _vm._v(" //right\n        "),
+                    _c("line", {
+                      staticStyle: {
+                        stroke: "rgb(0,0,0)",
+                        "stroke-width": "2"
+                      },
+                      attrs: { x1: "80", y1: "350", x2: "80", y2: "380" }
+                    }),
+                    _vm._v(" //left\n        "),
+                    _c(
+                      "text",
+                      {
+                        staticClass: "cursor-pointer",
+                        attrs: {
+                          "text-anchor": "right",
+                          transform: "translate(351,95)"
+                        },
+                        on: {
+                          click: function($event) {
+                            return _vm.change("width")
+                          }
+                        }
+                      },
+                      [_vm._v(_vm._s(_vm.parts["width"]))]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "text",
+                      {
+                        staticClass: "cursor-pointer",
+                        attrs: {
+                          "text-anchor": "left",
+                          transform: "translate(95,379) rotate(-90)"
+                        },
+                        on: {
+                          click: function($event) {
+                            return _vm.change("width")
+                          }
+                        }
+                      },
+                      [_vm._v(_vm._s(_vm.parts["width"]))]
+                    )
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.inner
+                ? _c("svg", [
+                    _c("line", {
+                      staticStyle: {
+                        stroke: "rgb(255,0,0)",
+                        "stroke-width": "0.8"
+                      },
+                      attrs: {
+                        x1: "350",
+                        y1: "200",
+                        x2: "350",
+                        y2: "350",
+                        "stroke-dasharray": "5,5"
+                      }
+                    }),
+                    _vm._v(" //rightCutOutInner\n        "),
+                    _c("line", {
+                      staticStyle: {
+                        stroke: "rgb(255,0,0)",
+                        "stroke-width": "0.8"
+                      },
+                      attrs: {
+                        x1: "200",
+                        y1: "350",
+                        x2: "350",
+                        y2: "350",
+                        "stroke-dasharray": "5,5"
+                      }
+                    }),
+                    _vm._v(" //leftCutOutInner\n        "),
+                    _c(
+                      "text",
+                      {
+                        staticClass: "cursor-pointer",
+                        attrs: {
+                          "text-anchor": "right",
+                          transform: "translate(347,295) rotate(-90)"
+                        },
+                        on: {
+                          click: function($event) {
+                            return _vm.change("cutOutInner")
+                          }
+                        }
+                      },
+                      [_vm._v(_vm._s(_vm.parts["cutOutInner"]))]
+                    ),
+                    _vm._v(" //rightCutOutInner\n        "),
+                    _c(
+                      "text",
+                      {
+                        staticClass: "cursor-pointer",
+                        attrs: {
+                          "text-anchor": "left",
+                          transform: "translate(270,347)"
+                        },
+                        on: {
+                          click: function($event) {
+                            return _vm.change("cutOutInner")
+                          }
+                        }
+                      },
+                      [_vm._v(_vm._s(_vm.parts["cutOutInner"]))]
+                    ),
+                    _vm._v(" //leftCutOutInner\n      ")
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.center
+                ? _c("svg", [
+                    _c("line", {
+                      staticStyle: {
+                        stroke: "rgb(255,0,0)",
+                        "stroke-width": "0.8"
+                      },
+                      attrs: {
+                        x1: "365",
+                        y1: "224",
+                        x2: "365",
+                        y2: "365",
+                        "stroke-dasharray": "5,5"
+                      }
+                    }),
+                    _vm._v(" //rightCutOutCenter\n        "),
+                    _c("line", {
+                      staticStyle: {
+                        stroke: "rgb(255,0,0)",
+                        "stroke-width": "0.8"
+                      },
+                      attrs: {
+                        x1: "224",
+                        y1: "365",
+                        x2: "365",
+                        y2: "365",
+                        "stroke-dasharray": "5,5"
+                      }
+                    }),
+                    _vm._v(" //leftCutOutCenter\n        "),
+                    _c(
+                      "text",
+                      {
+                        staticClass: "cursor-pointer",
+                        attrs: {
+                          "text-anchor": "right",
+                          transform: "translate(362,310) rotate(-90)"
+                        },
+                        on: {
+                          click: function($event) {
+                            return _vm.change("cutOutCenter")
+                          }
+                        }
+                      },
+                      [_vm._v(_vm._s(_vm.parts["cutOutCenter"]))]
+                    ),
+                    _vm._v(" //rightCutOutCenter\n        "),
+                    _c(
+                      "text",
+                      {
+                        staticClass: "cursor-pointer",
+                        attrs: {
+                          "text-anchor": "left",
+                          transform: "translate(285,362)"
+                        },
+                        on: {
+                          click: function($event) {
+                            return _vm.change("cutOutCenter")
+                          }
+                        }
+                      },
+                      [_vm._v(_vm._s(_vm.parts["cutOutCenter"]))]
+                    ),
+                    _vm._v(" //leftCutOutCenter\n      ")
+                  ])
+                : _vm._e(),
+              _vm._v(" "),
+              _vm.all || _vm.outer
+                ? _c("svg", [
+                    _c("line", {
+                      staticStyle: {
+                        stroke: "rgb(255,0,0)",
+                        "stroke-width": "0.8"
+                      },
+                      attrs: {
+                        x1: "380",
+                        y1: "230",
+                        x2: "380",
+                        y2: "380",
+                        "stroke-dasharray": "5,5"
+                      }
+                    }),
+                    _vm._v(" //rightCutOutOuter\n        "),
+                    _c("line", {
+                      staticStyle: {
+                        stroke: "rgb(255,0,0)",
+                        "stroke-width": "0.8"
+                      },
+                      attrs: {
+                        x1: "230",
+                        y1: "380",
+                        x2: "380",
+                        y2: "380",
+                        "stroke-dasharray": "5,5"
+                      }
+                    }),
+                    _vm._v(" //leftCutOutOuter\n        "),
+                    _c(
+                      "text",
+                      {
+                        staticClass: "cursor-pointer",
+                        attrs: {
+                          "text-anchor": "right",
+                          transform: "translate(377,325) rotate(-90)"
+                        },
+                        on: {
+                          click: function($event) {
+                            return _vm.change("cutOutOuter")
+                          }
+                        }
+                      },
+                      [_vm._v(_vm._s(_vm.parts["cutOutOuter"]))]
+                    ),
+                    _vm._v(" "),
+                    _c(
+                      "text",
+                      {
+                        staticClass: "cursor-pointer",
+                        attrs: {
+                          "text-anchor": "left",
+                          transform: "translate(300,377)"
+                        },
+                        on: {
+                          click: function($event) {
+                            return _vm.change("cutOutOuter")
+                          }
+                        }
+                      },
+                      [_vm._v(_vm._s(_vm.parts["cutOutOuter"]))]
+                    )
+                  ])
+                : _vm._e()
+            ]
+          )
+        : _vm._e()
+    ])
   ])
 }
 var staticRenderFns = []
@@ -14475,15 +14476,14 @@ new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 /*!****************************************!*\
   !*** ./src/components/Application.vue ***!
   \****************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _Application_vue_vue_type_template_id_b02fc960___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Application.vue?vue&type=template&id=b02fc960& */ "./src/components/Application.vue?vue&type=template&id=b02fc960&");
 /* harmony import */ var _Application_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./Application.vue?vue&type=script&lang=js& */ "./src/components/Application.vue?vue&type=script&lang=js&");
-/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _Application_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__) if(__WEBPACK_IMPORT_KEY__ !== 'default') (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _Application_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__[key]; }) }(__WEBPACK_IMPORT_KEY__));
-/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
 
 
 
@@ -14513,7 +14513,7 @@ component.options.__file = "src/components/Application.vue"
 /*!*****************************************************************!*\
   !*** ./src/components/Application.vue?vue&type=script&lang=js& ***!
   \*****************************************************************/
-/*! no static exports found */
+/*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
