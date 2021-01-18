@@ -1271,7 +1271,7 @@ var render = function() {
       _vm.svg
         ? _c(
             "svg",
-            { staticClass: "mt-5", attrs: { width: "400", height: "400" } },
+            { staticClass: "mt-5", attrs: { width: "500", height: "500" } },
             [
               _vm.all
                 ? _c("line", {
