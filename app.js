@@ -1114,9 +1114,9 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "p-5" }, [
+  return _c("div", {}, [
     !_vm.editField
-      ? _c("div", { staticClass: "mt-5 flex justify-center" }, [
+      ? _c("div", { staticClass: "mt-5 flex justify-center mx-5" }, [
           _c(
             "button",
             {
@@ -1217,6 +1217,54 @@ var render = function() {
             [_vm._v("см")]
           )
         ])
+      : _vm._e(),
+    _vm._v(" "),
+    _vm.editField
+      ? _c(
+          "div",
+          {
+            staticClass:
+              "mt-5 mx-auto content-center w-64 bg-gray-400 px-5 py-10"
+          },
+          [
+            _c("input", {
+              directives: [
+                {
+                  name: "model",
+                  rawName: "v-model",
+                  value: _vm.edit,
+                  expression: "edit"
+                }
+              ],
+              staticClass: "border border-black p-1",
+              attrs: { type: "number", size: "" },
+              domProps: { value: _vm.edit },
+              on: {
+                input: function($event) {
+                  if ($event.target.composing) {
+                    return
+                  }
+                  _vm.edit = $event.target.value
+                }
+              }
+            }),
+            _vm._v(" "),
+            _c(
+              "button",
+              {
+                staticClass:
+                  "p-1 bg-blue-700 text-white rounded-lg border-blue-600 border focus:outline-none",
+                attrs: { type: "button", name: "button" },
+                on: {
+                  click: function($event) {
+                    return _vm.calculate()
+                  }
+                }
+              },
+              [_vm._v("OK")]
+            )
+          ]
+        )
       : _vm._e(),
     _vm._v(" "),
     _c("div", { staticClass: "flex justify-center" }, [
