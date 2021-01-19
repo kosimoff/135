@@ -1286,7 +1286,12 @@ var render = function() {
             ],
             staticClass:
               "border border-black p-1 focus:outline-none rounded-lg",
-            attrs: { type: "number" },
+            attrs: {
+              type: "number",
+              onFocus: "this.select()",
+              autofocus: "",
+              id: "edit"
+            },
             domProps: { value: _vm.edit },
             on: {
               input: function($event) {
