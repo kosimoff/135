@@ -1284,7 +1284,7 @@ var render = function() {
                 expression: "edit"
               }
             ],
-            staticClass: "border border-black p-1",
+            staticClass: "border border-black p-1 rounded-lg",
             attrs: { type: "number" },
             domProps: { value: _vm.edit },
             on: {
