@@ -330,7 +330,7 @@ __webpack_require__.r(__webpack_exports__);
 
       if (this.window.height > this.window.width) {
         //portrait
-        this.svgWidth = this.window.width - 200 + 'px';
+        this.svgWidth = this.window.width + 'px';
       } else {
         //landscape
         this.svgWidth = this.window.height - 200 + 'px';
