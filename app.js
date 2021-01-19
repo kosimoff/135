@@ -1285,7 +1285,7 @@ var render = function() {
               }
             ],
             staticClass:
-              "border border-black p-1 rounded-lg focus:outline-none",
+              "border border-black p-1 focus:outline-none rounded-lg",
             attrs: { type: "number" },
             domProps: { value: _vm.edit },
             on: {
