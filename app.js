@@ -304,8 +304,7 @@ __webpack_require__.r(__webpack_exports__);
       window: {
         width: 0,
         height: 0
-      },
-      divHeight: 10
+      }
     };
   },
   created: function created() {
@@ -676,7 +675,8 @@ __webpack_require__.r(__webpack_exports__);
       this.svg = true;
       this.editField = false;
     }
-  }
+  },
+  mounted: function mounted() {}
 });
 
 /***/ }),
@@ -1286,12 +1286,7 @@ var render = function() {
             ],
             staticClass:
               "border border-black p-1 focus:outline-none rounded-lg",
-            attrs: {
-              type: "number",
-              onFocus: "this.select()",
-              autofocus: "",
-              id: "edit"
-            },
+            attrs: { onfocus: "select()", autofocus: "", type: "number" },
             domProps: { value: _vm.edit },
             on: {
               input: function($event) {
