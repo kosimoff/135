@@ -258,6 +258,8 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: "Application",
   props: [],
@@ -2697,6 +2699,28 @@ var render = function() {
               : _vm._e()
           ]
         )
+      : _vm._e(),
+    _vm._v(" "),
+    !_vm.editField
+      ? _c("p", { staticClass: "mt-3 text-gray-500" }, [
+          _vm._v(
+            _vm._s(
+              (_vm.parts.rightGlassOuter * 1 +
+                _vm.parts.leftGlassOuter * 1 +
+                _vm.parts.doorOuter * 1) /
+                1000
+            ) +
+              "m | " +
+              _vm._s(
+                ((_vm.parts.rightGlassCenter * 1 +
+                  _vm.parts.leftGlassCenter * 1 +
+                  _vm.parts.doorCenter * 1) /
+                  1000) *
+                  2
+              ) +
+              "㎡"
+          )
+        ])
       : _vm._e()
   ])
 }
