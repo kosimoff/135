@@ -306,7 +306,9 @@ __webpack_require__.r(__webpack_exports__);
       window: {
         width: 0,
         height: 0
-      }
+      },
+      length: null,
+      squareMeter: null
     };
   },
   created: function created() {
@@ -316,6 +318,7 @@ __webpack_require__.r(__webpack_exports__);
     this.leftWallCenterChange();
     this.doorCenterChange();
     this.format();
+    this.getLengthAndArea();
   },
   destroyed: function destroyed() {
     window.removeEventListener('resize', this.handleResize);
@@ -464,6 +467,19 @@ __webpack_require__.r(__webpack_exports__);
           break;
 
         default:
+      }
+
+      this.getLengthAndArea();
+    },
+    getLengthAndArea: function getLengthAndArea() {
+      if (this.currentUnit === "cm") {
+        this.length = this.parts.rightGlassOuter * 1 + this.parts.leftGlassOuter * 1 + this.parts.doorOuter * 1;
+        this.area = (this.parts.rightGlassCenter * 1 + this.parts.leftGlassCenter * 1 + this.parts.doorCenter * 1) * 2;
+      }
+
+      if (this.currentUnit === "mm") {
+        this.length = (this.parts.rightGlassOuter * 1 + this.parts.leftGlassOuter * 1 + this.parts.doorOuter * 1) / 1000;
+        this.area = (this.parts.rightGlassCenter * 1 + this.parts.leftGlassCenter * 1 + this.parts.doorCenter * 1) / 1000 * 2;
       }
     },
     widthChange: function widthChange() {
@@ -2703,23 +2719,7 @@ var render = function() {
     _vm._v(" "),
     !_vm.editField
       ? _c("p", { staticClass: "mt-3 text-gray-500" }, [
-          _vm._v(
-            _vm._s(
-              (_vm.parts.rightGlassOuter * 1 +
-                _vm.parts.leftGlassOuter * 1 +
-                _vm.parts.doorOuter * 1) /
-                1000
-            ) +
-              "m | " +
-              _vm._s(
-                ((_vm.parts.rightGlassCenter * 1 +
-                  _vm.parts.leftGlassCenter * 1 +
-                  _vm.parts.doorCenter * 1) /
-                  1000) *
-                  2
-              ) +
-              "㎡"
-          )
+          _vm._v(_vm._s(_vm.length) + "m | " + _vm._s(_vm.area) + "㎡")
         ])
       : _vm._e()
   ])
