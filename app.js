@@ -317,7 +317,6 @@ __webpack_require__.r(__webpack_exports__);
     this.rightWallCenterChange();
     this.leftWallCenterChange();
     this.doorCenterChange();
-    this.format();
     this.getLengthAndArea();
   },
   destroyed: function destroyed() {
@@ -470,17 +469,21 @@ __webpack_require__.r(__webpack_exports__);
       }
 
       this.getLengthAndArea();
+      this.format();
     },
     getLengthAndArea: function getLengthAndArea() {
       if (this.currentUnit === "cm") {
-        this.length = this.parts.rightGlassOuter * 1 + this.parts.leftGlassOuter * 1 + this.parts.doorOuter * 1;
-        this.area = (this.parts.rightGlassCenter * 1 + this.parts.leftGlassCenter * 1 + this.parts.doorCenter * 1) * 2;
+        this.length = (this.parts.rightGlassOuter * 1 + this.parts.leftGlassOuter * 1 + this.parts.doorOuter * 1) / 100;
+        this.area = (this.parts.rightGlassCenter * 1 + this.parts.leftGlassCenter * 1 + this.parts.doorCenter * 1) / 100 * 2;
       }
 
       if (this.currentUnit === "mm") {
         this.length = (this.parts.rightGlassOuter * 1 + this.parts.leftGlassOuter * 1 + this.parts.doorOuter * 1) / 1000;
         this.area = (this.parts.rightGlassCenter * 1 + this.parts.leftGlassCenter * 1 + this.parts.doorCenter * 1) / 1000 * 2;
       }
+
+      this.length = this.length.toFixed(3);
+      this.area = this.area.toFixed(3);
     },
     widthChange: function widthChange() {
       this.doorCenterChange();
